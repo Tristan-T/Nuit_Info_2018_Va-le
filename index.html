@@ -1,47 +1,49 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<html>
+<head>
+	<title>ADD TITLE</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
+<header>
+	<div>
+		<nav>
+		<div id="burgerMenu">
+		<input id="chkbox" type="checkbox"/>
+		<label for="chkbox">
+		<!-- Some tasty burger* !-->
+		
+		<div class="burger"></div>
+		<div class="burger"></div>
+		<div class="burger"></div>
 
-	<head>
-		<title>Namib Project</title>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="./styles/index.css">
-	</head>
+		<!-- *no calories included-->
 
-  <body>
-    <nav role="navigation">
-      <div id="menuToggle">
-        <!--
-        A fake / hidden checkbox is used as click reciever,
-        so you can use the :checked selector on it.
-        -->
-        <input type="checkbox" />
+		</label>
+		
 
-        <!--
-        Some spans to act as a hamburger.
-
-        They are acting like a real hamburger,
-        not that McDonalds stuff.
-        -->
-        <span></span>
-        <span></span>
-        <span></span>
-
-        <!--
-        Too bad the menu has to be inside of the button
-        but hey, it's pure CSS magic.
-        -->
-        <ul id="menu">
-          <a href="#"><li>Home</li></a>
-          <a href="#"><li>About</li></a>
-          <a href="#"><li>Info</li></a>
-          <a href="#"><li>Contact</li></a>
-          <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
-        </ul>
-      </div>
-    </nav>
-  </body>
-
+		<ul id="menu">
+			<div>
+			<a href="#"><li>AAAAA</li></a>
+			<a href="#"><li>BBBBB</li></a>
+			<a href="#"><li>CCCCC</li></a>
+			<a href="#"><li>DDDDD</li></a>
+			</div>
+		</ul>
+		</div>
+		</nav>
+	</div>
+	<div id="temp">XX°C</div>
+</header>
+<body>
+	<div id="meteo">Meteo</div>
+	<div id="map">Map</div>
+	<div id="bottom">
+		<div class="bottomsquares"></div>
+		<div class="bottomsquares"></div>
+		<div class="bottomsquares"></div>
+	</div>
+</body>
 
 </html>
