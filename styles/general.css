@@ -55,6 +55,14 @@ nav div {
 	background-color: blue;
 	z-index: -4;
 }
+.agenda {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.google_calendar {
+	padding:10px
+}
 
 @media(max-width: 1275px){
 	nav {
