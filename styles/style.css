@@ -10,23 +10,22 @@
 
 	* {
 		font-family: arial;
+		border-radius: 20px;
 	}
 
 	header {
 		background-color: #ff5454;
 		width: 100vw;
-		margin-top: -8px;
-		margin-left:-8px;
 		padding: 0;
 		border: 0;
 		box-sizing:border-box;
-		height: 210px;
+		height: 10vh;
 		display: flex;
 		justify-content: space-between;
 	}
 
 	#menu {
-		font-size: 140px;
+		font-size: 12vw;
 		font-family: arial;
 		background-color: gray;
 		position: absolute;
@@ -70,9 +69,9 @@ ul div a li {
 	}
 
 	.burger {
-		width: 175px;
-		height: 30px;
-		margin-bottom: 30px;
+		width: 90px;
+		height: 15px;
+		margin-bottom: 15px;
 		position: relative;
 		top: 30px;
 		left: 30px;
@@ -132,7 +131,7 @@ ul div a li {
 }
 
 .text_bottom {
-	margin-top:2vh; 
+	margin-top:2vh;
 	font-size: 2.1vw;
 	margin-top: 1vh;
 	text-align: center;
@@ -203,4 +202,16 @@ ul div a li {
 	width: 14vw;
   background-color: rgb(83,104,192);
   overflow: hidden;
+}
+
+#urgence {
+	position: absolute;
+	bottom: 3vw;
+	right: 3vw;
+}
+
+#photo_urgence {
+	width: 15vw;
+	background: white;
+	border-radius: 200px;
 }

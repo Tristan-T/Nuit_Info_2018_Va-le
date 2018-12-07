@@ -5,6 +5,7 @@
 	<title>Projet Namibi</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 	<link rel="stylesheet" href="./styles/style.css" type="text/css" />
+	<link rel="shortcut icon" type="image/png" href="./icon/favicon.png"/>
 </head>
 <header>
 	<div>
@@ -25,12 +26,12 @@
 
 		<ul id="menu">
 			<div>
-			<a href="#"><li>• Accueil</li></a>
-			<a href="#"><li>• Checklist</li></a>
-			<a href="#"><li>• Agenda</li></a>
-			<a href="#"><li>• Météo</li></a>
-      <a href="#"><li>• Médic</li></a>
-      <a href="#"><li>• Vivre</li></a>
+			<a href="index.html"><li>• Accueil</li></a>
+			<a href="checklist.html"><li>• Checklist</li></a>
+			<a href="agenda.html"><li>• Agenda</li></a>
+			<a href="meteo.html"><li>• Météo</li></a>
+      <a href="medic.html"><li>• Médic</li></a>
+      <a href="vivres.html"><li>• Vivre</li></a>
 			</div>
 		</ul>
 		</div>
@@ -112,6 +113,17 @@
       <div class="text_bottom"> Chat </div>
     </div>
 	</div>
+	<a id="urgence" onclick="alerte_survie()">
+	<img  id="photo_urgence" src="./icon/serpent.png" alt="Bouton d'urgence">
+	</a>
+
+	<script>
+	function alerte_survie() {
+	  alert("L'alerte a été envoyée.");
+	}
+	</script>
+
+
 </body>
 
 </html>
