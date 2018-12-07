@@ -1,0 +1,19 @@
+.vent {
+ min-width:210px;
+ height: 50%;
+width: 50%;
+}
+
+.tempera {
+	
+	min-width:310px; 
+	height: 50%; 
+	width:50%;
+
+}
+
+#grodiv {
+	display:flex;
+	flex-direction:row;
+	margin: 5%;
+}

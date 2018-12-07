@@ -1,19 +1,154 @@
 <!DOCTYPE html>
-<html lang=fr>
-	
-	<head>
-		
-	</head>
-	
-	<body>
-		<header> 
 
-		</header>
-		
-	<main>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Météo</title>
+        <link rel="stylesheet" type="text/css" href="./styles/css_meteo.css">
+		<link rel="stylesheet" type="text/css" href="./styles/general.css">
+
+    </head>
+
+    <body>
+        <header>
+
+
+            <nav>
+
+                <div>
+                    <a href="./index.html">Accueil</a>
+                </div>
+                <div>
+                    <a href="./checklist.html">Checkliste</a>
+                </div>
+                <div>
+                    <a href="./agenda.html">Agenda</a>
+                </div>
+                <div>
+                    <a href="./meteo.html">Météo</a>
+
+                </div>
+                <div>
+                    <a href="./medic.html">Médic</a>
+
+                </div>
+                <div>
+                    <a href="./vivres.html">Vivres</a>
+
+                </div>
+
+            </nav>
+            <div id="boxshadowonly"></div>
+        </header>
+
+       <main>
+	   <div id=grodiv>
+	   <p>
+			<script src="https://code.highcharts.com/highcharts.js"></script>
+			<script src="https://code.highcharts.com/modules/exporting.js"></script>
+			<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+			<div id="container" class='vent' ></div>
+					<script>
+					Highcharts.chart('container', {
+					  chart: {
+						type: 'column'
+					  },
+					  title: {
+						text: 'Vitesse du vent ces 4 derniers jours'
+					  },
+					  xAxis: {
+						categories: ['2 décembre', '3 décembre', '4 décembre', '5 decembre', '6 decembre']
+					  },
+					  yAxis: {
+						min: 0,
+						title: {
+						  text: 'Km/h',
+						  
+						}
+						},
+						credits: {
+							enabled: false
+						},
+
+					  legend: {
+						reversed: true
+					  },
+					  plotOptions: {
+						series: {
+						  stacking: 'normal'
+						}
+					  },
+					  series: [{
+						name: 'Vent Faible',
+						color:'#FFFF66',
+						data: [5, 0, 0, 0, 0]
+					  },{
+							name: 'Vent moyen',
+							color:'#FFCC00',
+							data: [0, 24, 0, 0, 28]
+						}, {
+							name: 'Vent fort',
+							color:'#FF9900',
+							data: [0, 0, 0, 39, 0]
+						},{
+							name: 'Vent dangereux',
+							color:'#CC3300',
+							data: [0, 0, 86, 0, 0]
+						}]
+					});
+
+
+					</script>
+</p>
+<p>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+	<div id="container_2" class='tempera' ></div>
+				<script>
+				Highcharts.chart('container_2', {
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'Temperature de l\'air pour aujourd\'hui et les 4 prochains jours'
+					},
+					xAxis: {
+						categories: ['Aujourd\'hui\, 13 décembre','Demain\, 14 décembre', '14 décembre', '15 décembre', '16 décembre', '17 décembre']
+
+					},
+					yAxis: {
+						title: {
+						text: 'Degrès C',  
+						}
+					},
+					
+					credits: {
+						enabled: false
+					},
+					series: [{
+						name: 'Matin',
+					   color:'#ffbf80', 
+						data: [31, 30, 29, 40, 34]
+					}, {
+						name: 'Apres-midi',
+					   color:'#FF3333',
+						data: [42, 37, 43, 49, 40]
+					}, {
+						name: 'Nuit',
+						color:'#330d00',
+						data: [-6, 4, -9, -7, 6]
+					}]
+				});
+				</script>
+	</p>
+	</div>
 		</main>
-		<footer>
-			<a class="link" href=#>Retour au début</a>
-		</footer>
-	</body>
+    </body>
+
+
 </html>
