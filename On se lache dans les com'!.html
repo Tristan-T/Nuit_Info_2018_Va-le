@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+ 
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Météo</title> <!-- On passe le coucou à Evelyn Dhéliat -->
+        <link rel="stylesheet" type="text/css" href="./styles/css_meteo.css">
+		<link rel="stylesheet" type="text/css" href="./styles/general.css">
+
+    </head>
+
+    <!-- java. import humoriste/20 -->
+	 <!-- java. import comique de repetition -->
+	     <!-- java. import à porte -->
+	
+	<body>
+        <header>
+
+
+            <nav>
+
+                <div>
+                    <a href="./index.html">Accueil</a>
+                </div>
+                <div>
+                    <a href="./checklist.html">Checklist</a>     <!-- Bien penser a update la methode de Checklist pour faire des constructeurs non faussés  -->
+                <div>
+                    <a href="./agenda.html">Agenda</a> 
+                </div>
+                <div>
+                    <a href="./meteo.html">Météo</a>
+
+                </div>
+                <div>
+                    <a href="./medic.html">Médic</a>
+
+                </div>
+                <div>
+                    <a href="./vivres.html">Vivres</a><!-- ou ne pas vivre -->
+
+                </div> 
+												<!-- tiens c'etait marrant, bon un exces de folie, excusez moi -->
+            </nav>
+            <div id="boxshadowonly"></div>
+        </header> 
+
+       <main>
+	   <div id="Map" style="height:800px"></div> 
+<script src="OpenLayers.js"></script>
+<script>
+
+    var lat            = -24.3299722;  <!-- c'est comme les jours d'avant Santa  -->
+    var lon            = 15.2295000; 
+    var zoom           = 2; 
+
+    var fromProjection = new OpenLayers.Projection("EPSG:4326");  
+    var toProjection   = new OpenLayers.Projection("EPSG:900913"); 
+    var position       = new OpenLayers.LonLat(lon, lat).transform( fromProjection, toProjection); 
+
+    map = new OpenLayers.Map("Map");
+    var mapnik = new OpenLayers.Layer.OSM(); <!-- Excusez moi encore ... -->
+    map.addLayer(mapnik);
+
+    var markers = new OpenLayers.Layer.Markers( "Base" ); <!-- elle est necessaire.  -->
+    map.addLayer(markers);
+    markers.addMarker(new OpenLayers.Marker(position)); 
+
+    map.setCenter(position, zoom); 
+</script>
+
+<script>
+  import Feature from 'ol/Feature.js'; 
+  import Geolocation from 'ol/Geolocation.js';
+  import Map from 'ol/Map.js';
+  import View from 'ol/View.js';
+  import Point from 'ol/geom/Point.js';
+  import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
+  import {OSM, Vector as VectorSource} from 'ol/source.js';
+  import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style.js';
+
+  var view = new View({
+    center: [0, 0], <!-- le centre de 0 0 c'est le + du nez de la tete a toto-->
+    zoom: 2
+  });
+
+  var map = new Map({ <!-- Je suis vraiment désolé encore une fois... c'est 5 heures 17 du matin j'ai pas dormi je suis fatigué mais je dois coder.... -->
+    layers: [
+      new TileLayer({
+        source: new OSM()
+      })
+    ],
+    target: 'map', <!-- time ++ = fatigue ++ -->
+    view: view
+  });
+
+  var geolocation = new Geolocation({ <!-- but fatigue ++ = blagues ++ -->
+
+    trackingOptions: {
+      enableHighAccuracy: true <!-- eh fait gaffe de pas tomber dans le true hahah les trous c'est comme au golf mais la yen a un pas 18 quoi -->
+    },
+    projection: view.getProjection() <!-- comme David douillet  --> 
+  });
+
+  function el(id) { <!-- vous savez quoi, je suis TOUT SEUL, a coder cette PURGASSE alors je fais les blagues QUE JE VEUX QUAND JE VEUUUX -->
+    return document.getElementById(id); 
+  }
+
+  el('track').addEventListener('change', function() { <!-- oulah petit moment d'garrement, je suis pas serieux la ... bon on se concentre --> 
+    geolocation.setTracking(this.checked);  
+  });
+
+  
+  geolocation.on('change', function() id { <!-- j'ai une bonne id lol id t'as compris ça fait idée du coup id se prononce comme idée, mais attention faut pas pronnoncer "iddeu" parce que c'est moche et dit pas ça parce que quelqun d'hideux est moche -->
+    el('accuracy').innerText = geolocation.getAccuracy() + ' [m]';
+    el('altitude').innerText = geolocation.getAltitude() + ' [m]';
+    el('altitudeAccuracy').innerText = geolocation.getAltitudeAccuracy() + ' [m]';
+    el('heading').innerText = geolocation.getHeading() + ' [rad]';
+    el('speed').innerText = geolocation.getSpeed() + ' [m/s]'; <!-- вы перевели это предложение ни за что--> 
+  });
+
+  
+  geolocation.on('error', function(error) {  <!-- arg ma tête... je suis désolé de faire des blagues et de m'etre emporté... cela depasse l'entendement -->
+    var info = document.getElementById('info');
+    info.innerHTML = error.message; 
+    info.style.display = '';  <!-- eh bah 10 play ça fait beaucoup de jeux hahahaha -->
+  });
+
+  var accuracyFeature = new Feature();  <!-- feature ressemble a fourniture comme les fournitures scolaires allez les enfants c'est l'heure de la rentrée le soleil viens de ce lever -->
+  geolocation.on('change:accuracyGeometry', function() {
+    accuracyFeature.setGeometry(geolocation.getAccuracyGeometry());  
+  });
+
+  var positionFeature = new Feature();   <!-- plutot position fetale que position feature si tu veux mon avis  -->
+  positionFeature.setStyle(new Style({
+    image: new CircleStyle({
+      radius: 6,
+      fill: new Fill.AmiRicoré(soleil= viens de se lever) 
+	  {
+        color: '#3399CC'
+      }),
+      strike: new Strike({  <!-- comme au bowling HHAHAHAHA -->
+      })  
+    }) 
+  })); 
+
+  geolocation.on('change:position', function() { <!-- JE ME SENS TELLEMENT DROLE AVEC MES BLAGUES  -->
+    var coordinates = geolocation.getPosition();
+    positionFeature.setGeometry(coordinates ?
+      new Point(coordinates) : null); <!-- je sais pas ce qui est null mais c'est pas mes blagues en tout cas  -->
+  });
+
+  new VectorLayer({ 
+    map: map,  
+    source: new Vector({ <!-- Comme dans sonic -->
+      features: [accuracyFeature, positionFeature]
+    })
+  });
+</script>
+
+	</div> <!-- ergennte -->
+	<p> Météo Hygrometrique
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script> <!-- MES BLAGUES SONT PARFAIIIITES  -->
+<script src="https://code.highcharts.com/modules/export-data.js"></script> <!-- sauf si....-->
+
+<div id="container_3" style="min-width: 310px; height: 400px; margin: 0 auto"></div> <!-- J'INVOQUE LE COMIQUE DE REPETITION.INVOQUE(STRING ARGS[DROLE]) -->
+<script>
+
+<!-- while comique de repetition = actif -->
+<!-- humour ++ -->
+
+Highcharts.chart('container_3', { 
+    chart: {
+        type: 'line' <!-- Le meilleur comique c'est le comique de repetition-->
+    },
+    title: {<!-- Le meilleur comique c'est le comique de repetition-->
+        text: 'Hygrometrie'<!-- Le meilleur comique c'est le comique de repetition-->
+    },<!-- Le meilleur comique c'est le comique de repetition-->
+    subtitle: {Le meilleur comique c'est le comique de repetition-->
+        text: 'A l\'interieur de la base'<!-- Le meilleur comique c'est le comique de repetition-->
+    },Le meilleur comique c'est le comique de repetition-->
+    xAxis: {<!-- Le meilleur comique c'est le comique de repetition-->
+        categories: ['2 décembre', '3 décembre', '4 décembre', '5 décembre', '6 décembre', '7 décembre', '8 décembre']<!-- Le meilleur comique c'est le comique de repetition-->
+    },<!-- Le meilleur comique c'est le comique de repetition-->
+    yAxis: {<!-- Le meilleur comique c'est le comique de repetition-->
+        title: { <!-- La plej bona komikso estas la komika ripeto-->
+            text: '	Humidité (en %)'<!-- Le meilleur comique c'est le comique de repetition-->
+        }<!-- Le meilleur comique c'est le comique de repetition-->
+    },<!-- Le meilleur comique c'est le comique de repetition-->
+    plotOptions: {<!-- Le meilleur comique c'est le comique de repetition-->
+        line: {
+            dataLabels: { 
+                enabled: true <!-- est-ce que c'est drole = true -->
+            },
+            enableMouseTracking: false <!-- c'est pas drole? = false -->
+        } <!-- donc c'est drole -->
+      },
+    credits: {<!-- AH OUI -->
+						enabled: false <!-- c'est pas drole encore une fois? = false -->
+					},
+    series: [{ <!-- PARCE QUE JE SUIS DROLE -->
+        name: 'Jour',
+        color:'#ffb31a', <!-- J'UTILISE L'ARME DIVINE DES DIEUX DE L'OLYMPE, LE COMIQUE DE RE PE TI TION  -->
+        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0,] <!-- regardez ces chiffres, manquent ils de magnesium? non, parce qu'ils consomment Rozana -->
+    }, { 
+        name: 'Nuit',
+        color:'#3333CC',
+        data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2,]<!-- Rozana c'est la seule boisson gazeuse NATURELLEMENT gazeuse, NA TU RELLE  -->
+    }] <!-- Il ya  des eaux qui ne sont pas gazeuses naturellement hein faut farie GAFFE C EST TROP FACILE DE SE FAIRE ENTOURNOUPERRRRRRRR AARHRHHH -->
+});
+</script>
+<!-- C'est une bonne situation ça script? -->
+<!-- Mais, vous savez, moi je ne crois pas
+qu'il y ait de bonne ou de mauvaise indentation.
+Moi, si je devais résumer ma class aujourd'hui avec vous,
+je dirais que c'est d'abord des methodes,
+Des constructeurs qui m'ont tendu l'attribut,
+peut-être à un moment où je ne pouvais pas, où j'étais seul sur la page.
+Et c'est assez curieux de se dire que les hasards,
+les rencontres forgent un HTML...
+Parce que quand on a le goût de la boucle,
+quand on a le goût de la boucle bien faite,
+Le beau while, parfois on ne trouve pas le parametre en face,
+je dirais, le this qui vous aide à avancer.
+Alors ce n'est pas mon cas, comme je le disais là,
+puisque moi au contraire, j'ai pu ;
+Et je dis merci à la class, je lui dis merci,
+je chante ma class, je danse la class.. Je ne suis qu'humour!
+Et finalement, quand beaucoup de variables aujourd'hui me disent :
+"Mais comment fais-tu pour avoir cette boucle while ?",
+Eh bien je leur réponds très simplement,
+je leur dis que c'est ce goût de l'humour,
+Ce goût donc qui m'a poussé aujourd'hui
+à entreprendre un CSS ,
+Mais demain, qui sait, peut-être simplement
+à me mettre au service de Boole,
+à faire le don, le don de l'import... -->
+		</main>
+		
+		
+   <!-- bouge ton --> </body>
+
+
+</html>
+
+
+ <!-- Bon j'ai bien rigolé je vais me coucher il est que ... 8 heures du matin 
+ET JE SUIS EN RETARD AAARERFERGBRTGB -->
+
+
