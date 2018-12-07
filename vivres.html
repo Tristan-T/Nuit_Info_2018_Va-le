@@ -54,30 +54,38 @@
 						  <th>Username</th> 
 						  <th>Password</th>
 						 </tr>
-						 <?php
-						// Create connection
-						$conn = new mysqli($servername, $username, $password);
+						<?php
+					   $dbhost = 'localhost:3036';
+					   $dbuser = 'root';
+					   $dbpass = 'rootpassword';
+					   
+					   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+					   
+					   if(! $conn ) {
+					      die('Could not connect: ' . mysql_error());
+					   }
+					   
+					   $sql = 'SELECT dateheure, designationproduit, qte FROM STOCKBASE';
+					   mysql_select_db('test_db');
+					   $retval = mysql_query( $sql, $conn );
+					   
+					   if(! $retval ) {
+					      die('Could not get data: ' . mysql_error());
+					   }
+					   
+					   while($row = mysql_fetch_array($retval, MYSQL_ASSOC())) {
+					      echo "EMP ID :{$row['dateheure']}  <br> ".
+					         "EMP NAME : {$row['designationproduit']} <br> ".
+					         "EMP SALARY : {$row['qte']} <br> ".
+					         "--------------------------------<br>";
+					   }
+					   
+					   echo "Fetched data successfully\n";
+					   
+					   mysql_close($conn);
+					?>
+					</table>
 
-						// Check connection
-						if ($conn->connect_error) {
-						    die("Connection failed: " . $conn->connect_error);
-						} 
-						  $sql = "SELECT id, username, password FROM login";
-						  $result = $conn->query($sql);
-
-						if ($result->num_rows > 0) {
-						   // output data of each row
-						   while($row = $result->fetch_assoc()) {
-						    	echo "<tr><td>" . $row["id"]. "</td><td>" . $row["username"] . "</td><td>"
-								. $row["password"]. "</td></tr>";
-							}
-
-						echo "</table>";} 
-						else { echo "0 results"; }
-						$conn->close();
-						?>
-
-						</table>
 
 					
 				</div>
