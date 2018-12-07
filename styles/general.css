@@ -1,3 +1,4 @@
+
 @font-face {
 	font-family: Geolight;
 	src: url(../assets/GeosansLight.ttf);
@@ -87,4 +88,9 @@ nav div {
 		display: none;
 	}*/
 	
+
+	
+main {
+	padding:10%;
 }
+

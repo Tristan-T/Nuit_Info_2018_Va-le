@@ -1,0 +1,23 @@
+{
+  "name": "Nuit_Info_2018_Va-le",
+  "version": "1.0.0",
+  "description": "Projet du groupe Vaïle de la nuit info 2018",
+  "main": "OpenLayers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tristan-T/Nuit_Info_2018_Va-le.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tristan-T/Nuit_Info_2018_Va-le/issues"
+  },
+  "homepage": "https://github.com/Tristan-T/Nuit_Info_2018_Va-le#readme",
+  "dependencies": {
+    "ol": "^5.3.0"
+  }
+}
