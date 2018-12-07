@@ -6,7 +6,7 @@
 		
 		<meta charset="utf-8">
 		<title>Vivres</title>		
-		<link rel="stylesheet" type="text/css" href="./styles/general.css">
+		<link rel="stylesheet" type="text/css" href="./styles/vivres.css">
 			
 	</head>
 	
@@ -48,7 +48,7 @@
 				<div>
 					<h2>Vivres et matériel en possession<h2>
 						
-						<table>
+						<table border="1">
 					 <tr>
 					  <th>Date et Heure</th> 
 					  <th>Produit</th> 
