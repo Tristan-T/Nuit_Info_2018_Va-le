@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 
 <html>
-	
+
 	<head>
-		
+
 		<meta charset="utf-8">
-		<title>Vivres</title>		
+		<title>Vivres</title>
 		<link rel="stylesheet" type="text/css" href="./styles/general.css">
-			
+
 	</head>
-	
+
 	<body>
 		<header>
-			
-			
+
+
 			<nav>
-			
+
 				<div>
 					<a href="./index.html">Accueil</a>
-				</div>			
+				</div>
 				<div>
-					<a href="./checklist.html">Checkliste</a>
-				</div>			
+					<a href="./checklist.html">Checklist</a>
+				</div>
 				<div>
 					<a href="./agenda.html">Agenda</a>
 				</div>
 				<div>
 					<a href="./meteo.html">Météo</a>
-					
+
 				</div>
 				<div>
 					<a href="./medic.html">Médic</a>
-					
+
 				</div>
 				<div>
 					<a href="./vivres.html">Vivres</a>
-					
+
 				</div>
-				
+
 			</nav>
 			<div id="boxshadowonly"></div>
 		</header>
-		
+
 		<main>
 			<article>
-				
+
 				<div>
 					<h2>Vivres et matériel en possession<h2>
-						
+
 						<table>
 						 <tr>
-						  <th>Id</th> 
-						  <th>Username</th> 
+						  <th>Id</th>
+						  <th>Username</th>
 						  <th>Password</th>
 						 </tr>
 						<?php
@@ -86,15 +86,38 @@
 					?>
 					</table>
 
+<<<<<<< HEAD
+						// Check connection
+						if ($conn->connect_error) {
+						    die("Connection failed: " . $conn->connect_error);
+						}
+						  $sql = "SELECT id, username, password FROM login";
+						  $result = $conn->query($sql);
 
-					
+						if ($result->num_rows > 0) {
+						   // output data of each row
+						   while($row = $result->fetch_assoc()) {
+						    	echo "<tr><td>" . $row["id"]. "</td><td>" . $row["username"] . "</td><td>"
+								. $row["password"]. "</td></tr>";
+							}
+
+						echo "</table>";}
+						else { echo "0 results"; }
+						$conn->close();
+						?>
+
+						</table>
+=======
+>>>>>>> 1a873eb33e390bfbb60bbe9dc7d2d10909f0e5b0
+
+
 				</div>
-			
+
 			</article>
-			
+
 		</main>
-		
+
 	</body>
-	
-	
+
+
 </html>
