@@ -55,7 +55,7 @@
 					  <th>Quantité</th>
 					 </tr>
 					 <?php
-					$conn = mysqli_connect("localhost", "root", "", "MISSION");
+					$conn = mysqli_connect("localhost", "root", "vaile", "MISSION");
 					  // Check connection
 					  if ($conn->connect_error) {
 					   die("Connection failed: " . $conn->connect_error);
